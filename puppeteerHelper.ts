@@ -1,5 +1,4 @@
 import * as puppeteer from 'puppeteer'
-import {Page} from 'puppeteer'
 
 let browser;
 let page;

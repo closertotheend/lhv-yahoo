@@ -65,13 +65,9 @@ async function scrapeLHVStocks(page: Page) {
     return stocks;
 }
 
-async function scrapeAndWrite(page: Page) {
-    let stocks = await scrapeLHVStocks(page);
-    lhvdb.set('stocks', stocks).write()
-}
-
 export async function scrapeLhv() {
     const page = await getPage();
-    await scrapeAndWrite(page);
+    let stocks = await scrapeLHVStocks(page);
+    await lhvdb.set('stocks', stocks).write();
     await closePuppeteer();
 }

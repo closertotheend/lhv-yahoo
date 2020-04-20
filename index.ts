@@ -1,13 +1,11 @@
-import {lhvdb, scoredb, yahoodb, yahooProcessedDb, YahooScrappedRecord} from "./db";
-import * as cheerio from 'cheerio';
+import {scoredb, yahoodb} from "./db";
 import * as _ from 'lodash'
-import {scrapeLhv} from "./scrape-lhv";
-import {scrapeYahoo} from "./scrape-yahoo";
 
 
-function process() {
+function calculateScore() {
     const state = yahoodb.getState().stocks;
 
+    const pe = _.orderBy(state.filter(it => it["Trailing PE"]), ["Trailing PE"], ["desc"]);
     const om = _.orderBy(state.filter(it => it["Operating Margin (ttm)"]), ["Operating Margin (ttm)"]);
     const roa = _.orderBy(state.filter(it => it["Return on Assets"]), ["Return on Assets"]);
     const roe = _.orderBy(state.filter(it => it["Return on Equity"]), ["Return on Equity"]);
@@ -19,6 +17,7 @@ function process() {
     const scored = state.map(it => ({
         ...it,
         score:
+            pe.findIndex(that => that.ticker === it.ticker) +
             om.findIndex(that => that.ticker === it.ticker) +
             roa.findIndex(that => that.ticker === it.ticker) +
             roe.findIndex(that => that.ticker === it.ticker)+
@@ -33,5 +32,5 @@ function process() {
 
 
 (async () => {
-    process();
+    calculateScore();
 })()
