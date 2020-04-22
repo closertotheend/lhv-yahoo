@@ -2806,11 +2806,6 @@
       "market": "Stockholm Stock Exchange"
     },
     {
-      "ticker": "TEL2TRB",
-      "name": "TELE2 AB-B SHS - RIGHTS 161116",
-      "market": "Stockholm Stock Exchange"
-    },
-    {
       "ticker": "TEL2ILA",
       "name": "TELE2 AB - REDEMPTION A SHR",
       "market": "Stockholm Stock Exchange"
@@ -10101,6 +10096,11 @@
       "market": "NASDAQ"
     },
     {
+      "ticker": "CEMI",
+      "name": "Chembio Diagnostics Inc",
+      "market": "NASDAQ"
+    },
+    {
       "ticker": "CCXI",
       "name": "ChemoCentryx Inc",
       "market": "NASDAQ"
@@ -11468,6 +11468,11 @@
     {
       "ticker": "EGAN",
       "name": "eGain Corporation",
+      "market": "NASDAQ"
+    },
+    {
+      "ticker": "EH",
+      "name": "Ehang Holdings ADR",
       "market": "NASDAQ"
     },
     {
@@ -13521,6 +13526,11 @@
       "market": "NASDAQ"
     },
     {
+      "ticker": "IMVT",
+      "name": "IMMUNOVANT INC",
+      "market": "NASDAQ"
+    },
+    {
       "ticker": "IPXL",
       "name": "Impax Laboratories, Inc.",
       "market": "NASDAQ"
@@ -14701,17 +14711,17 @@
       "market": "NASDAQ"
     },
     {
-      "ticker": "LMCA",
-      "name": "Liberty Media Corporation",
-      "market": "NASDAQ"
-    },
-    {
       "ticker": "LSXMK",
       "name": "Liberty Media Corporation",
       "market": "NASDAQ"
     },
     {
       "ticker": "BATRK",
+      "name": "Liberty Media Corporation",
+      "market": "NASDAQ"
+    },
+    {
+      "ticker": "LMCA",
       "name": "Liberty Media Corporation",
       "market": "NASDAQ"
     },
@@ -17811,11 +17821,6 @@
       "market": "NASDAQ"
     },
     {
-      "ticker": "RECN",
-      "name": "Resources Connection Inc",
-      "market": "NASDAQ"
-    },
-    {
       "ticker": "RGDX",
       "name": "Response Genetics",
       "market": "NASDAQ"
@@ -20181,12 +20186,12 @@
       "market": "NASDAQ"
     },
     {
-      "ticker": "20160509004600VBIV",
+      "ticker": "VBIV",
       "name": "VBI Vaccines Inc",
       "market": "NASDAQ"
     },
     {
-      "ticker": "VBIV",
+      "ticker": "20160509004600VBIV",
       "name": "VBI Vaccines Inc",
       "market": "NASDAQ"
     },
@@ -23943,11 +23948,6 @@
     {
       "ticker": "COTY",
       "name": "Coty Inc.",
-      "market": "New York Stock Exchange"
-    },
-    {
-      "ticker": "CCSC",
-      "name": "Country Style Cooking Restaurant Chain Co., Ltd.",
       "market": "New York Stock Exchange"
     },
     {
@@ -29166,12 +29166,12 @@
       "market": "New York Stock Exchange"
     },
     {
-      "ticker": "JPC",
+      "ticker": "JQC",
       "name": "Nuveen Preferred & Cv Income F",
       "market": "New York Stock Exchange"
     },
     {
-      "ticker": "JQC",
+      "ticker": "JPC",
       "name": "Nuveen Preferred & Cv Income F",
       "market": "New York Stock Exchange"
     },
@@ -30436,11 +30436,6 @@
       "market": "New York Stock Exchange"
     },
     {
-      "ticker": "RGP",
-      "name": "Regency Energy Partners LP Comm",
-      "market": "New York Stock Exchange"
-    },
-    {
       "ticker": "RF",
       "name": "Regions Financial Corp",
       "market": "New York Stock Exchange"
@@ -30503,6 +30498,11 @@
     {
       "ticker": "RFP",
       "name": "RESOLUTE FOREST PRODUCTS INC.",
+      "market": "New York Stock Exchange"
+    },
+    {
+      "ticker": "RGP",
+      "name": "Resources Connection Inc",
       "market": "New York Stock Exchange"
     },
     {
@@ -33801,7 +33801,7 @@
       "market": "XETRA"
     },
     {
-      "ticker": "ATI",
+      "ticker": "ATD",
       "name": "ALLEGHENY TECHNOLOGIES INC.",
       "market": "XETRA"
     },
@@ -35056,6 +35056,11 @@
       "market": "XETRA"
     },
     {
+      "ticker": "OD7F",
+      "name": "ETC WisdomTree WTI Crude Oil",
+      "market": "XETRA"
+    },
+    {
       "ticker": "4RT2",
       "name": "ETFS DAILY LVRG COFFEE",
       "market": "XETRA"
@@ -35088,11 +35093,6 @@
     {
       "ticker": "OD7S",
       "name": "ETFS Wheat",
-      "market": "XETRA"
-    },
-    {
-      "ticker": "DES2",
-      "name": "ETFX DAX 2X SHRG-CT",
       "market": "XETRA"
     },
     {
@@ -35866,6 +35866,11 @@
       "market": "XETRA"
     },
     {
+      "ticker": "SXR5",
+      "name": "iShares MSCI Japan UCITS ETF",
+      "market": "XETRA"
+    },
+    {
       "ticker": "CEBB",
       "name": "iShares MSCI Russia ADR/GDR UCITS",
       "market": "XETRA"
@@ -36128,6 +36133,11 @@
     {
       "ticker": "ISPY",
       "name": "L&G Cyber Security UCITS ETF",
+      "market": "XETRA"
+    },
+    {
+      "ticker": "DES2",
+      "name": "L&G DAX Daily 2x Short UCITS ETF",
       "market": "XETRA"
     },
     {
@@ -36443,6 +36453,11 @@
     {
       "ticker": "MPC",
       "name": "MPC AG",
+      "market": "XETRA"
+    },
+    {
+      "ticker": "MTX",
+      "name": "MTU Aero Engines AG",
       "market": "XETRA"
     },
     {
@@ -37178,6 +37193,26 @@
     {
       "ticker": "SPYC",
       "name": "SPDR® MSCI Europe Consumer Staples UCITS ETF",
+      "market": "XETRA"
+    },
+    {
+      "ticker": "ZPRR",
+      "name": "SPDR® Russell 2000 U.S. Small Cap UCITS ETF",
+      "market": "XETRA"
+    },
+    {
+      "ticker": "ZPDS",
+      "name": "SPDR® S&P® U.S. Consumer Staples Select Sector UCITS ETF",
+      "market": "XETRA"
+    },
+    {
+      "ticker": "ZPDT",
+      "name": "SPDR® S&P® U.S. Technology Select Sector UCITS ETF",
+      "market": "XETRA"
+    },
+    {
+      "ticker": "ZPDU",
+      "name": "SPDR® S&P® U.S. Utilities Select Sector UCITS ETF",
       "market": "XETRA"
     },
     {
@@ -39711,11 +39746,6 @@
       "market": "London Stock Exchange"
     },
     {
-      "ticker": "AMLF",
-      "name": "ASTON MARTIN LAGONDA-FULL",
-      "market": "London Stock Exchange"
-    },
-    {
       "ticker": "AML",
       "name": "Aston Martin Lagonda Global Holdings plc",
       "market": "London Stock Exchange"
@@ -40101,8 +40131,8 @@
       "market": "London Stock Exchange"
     },
     {
-      "ticker": "COSG",
-      "name": "Costain Group",
+      "ticker": "COST",
+      "name": "Costain Group PLC",
       "market": "London Stock Exchange"
     },
     {
@@ -40273,6 +40303,11 @@
     {
       "ticker": "EEE",
       "name": "Empire Metals Ltd",
+      "market": "London Stock Exchange"
+    },
+    {
+      "ticker": "ESP",
+      "name": "Empiric Student Property Plc",
       "market": "London Stock Exchange"
     },
     {

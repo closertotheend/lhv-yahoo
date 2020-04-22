@@ -1,5 +1,8 @@
 import {scoredb, yahoodb} from "./db";
 import * as _ from 'lodash'
+import {scrapeLhv} from "./scrape-lhv";
+import {scrapeYahoo} from "./scrape-yahoo";
+import {processYahoo} from "./process-yahoo";
 
 
 function calculateScore() {
@@ -19,6 +22,7 @@ function calculateScore() {
 
     const de = _.orderBy(state.filter(it => it["Total debt/equity (mrq)"]), ["Total debt/equity (mrq)"], ["desc"]);
     const tady = _.orderBy(state.filter(it => it["Trailing Annual Dividend Yield"]), ["Trailing Annual Dividend Yield"]);
+    const fiveyeardiv = _.orderBy(state.filter(it => it["5-year average dividend yield"]), ["5-year average dividend yield"]);
     const payr = _.orderBy(state.filter(it => it["Payout ratio"]), ["Payout ratio"], ["desc"]);
 
     const change52 = _.orderBy(state.filter(it => it["52-week change"]), ["52-week change"], ["desc"]);
@@ -35,7 +39,8 @@ function calculateScore() {
             2 * qrg.findIndex(that => that.ticker === it.ticker) +
             qeg.findIndex(that => that.ticker === it.ticker) +
             de.findIndex(that => that.ticker === it.ticker) +
-            2 * tady.findIndex(that => that.ticker === it.ticker)+
+            tady.findIndex(that => that.ticker === it.ticker)+
+            fiveyeardiv.findIndex(that => that.ticker === it.ticker)+
             payr.findIndex(that => that.ticker === it.ticker) +
             change52.findIndex(that => that.ticker === it.ticker)
     }));
@@ -44,6 +49,13 @@ function calculateScore() {
 }
 
 
-(async () => {
-    calculateScore();
-})()
+try {
+    (async () => {
+        // scrapeLhv()
+        // scrapeYahoo()
+        // processYahoo()
+        // calculateScore();
+    })()
+} catch (e) {
+    console.error(e)
+}

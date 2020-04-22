@@ -1,4 +1,4 @@
-import { yahoodb, yahooProcessedDb, YahooScrappedRecord} from "./db";
+import {yahoodb, yahooProcessedDb, YahooScrappedRecord} from "./db";
 import * as cheerio from 'cheerio';
 
 
@@ -9,9 +9,9 @@ export function processYahoo() {
         console.log("ticker", it.ticker)
         const $ = cheerio.load(it.yahooPageContent);
         return {
-            "ticker": it.ticker,
-            "name": it.name,
-            "market": it.market,
+            ticker: it.ticker,
+            name: it.name,
+            market: it.market,
             "url": it.url,
             "50-day moving average": parseFloatAndPercent($(`#Col1-0-KeyStatistics-Proxy > section > div.Mstart\\(a\\).Mend\\(a\\) > div.Fl\\(end\\).W\\(50\\%\\).smartphone_W\\(100\\%\\) > div > div:nth-child(1) > div > div > table > tbody > tr:nth-child(6) > td.Fw\\(500\\).Ta\\(end\\).Pstart\\(10px\\).Miw\\(60px\\)`).html()),
             "200-day moving average": parseFloatAndPercent($(`#Col1-0-KeyStatistics-Proxy > section > div.Mstart\\(a\\).Mend\\(a\\) > div.Fl\\(end\\).W\\(50\\%\\).smartphone_W\\(100\\%\\) > div > div:nth-child(1) > div > div > table > tbody > tr:nth-child(7) > td.Fw\\(500\\).Ta\\(end\\).Pstart\\(10px\\).Miw\\(60px\\)`).html()),
@@ -19,7 +19,7 @@ export function processYahoo() {
             "52-week low": parseFloatAndPercent($(`#Col1-0-KeyStatistics-Proxy > section > div.Mstart\\(a\\).Mend\\(a\\) > div.Fl\\(end\\).W\\(50\\%\\).smartphone_W\\(100\\%\\) > div > div:nth-child(1) > div > div > table > tbody > tr:nth-child(5) > td.Fw\\(500\\).Ta\\(end\\).Pstart\\(10px\\).Miw\\(60px\\)`).html()),
             "52-week change": parseFloatAndPercent($(`#Col1-0-KeyStatistics-Proxy > section > div.Mstart\\(a\\).Mend\\(a\\) > div.Fl\\(end\\).W\\(50\\%\\).smartphone_W\\(100\\%\\) > div > div:nth-child(1) > div > div > table > tbody > tr:nth-child(2) > td.Fw\\(500\\).Ta\\(end\\).Pstart\\(10px\\).Miw\\(60px\\)`).html()),
 
-            "Market cap (intra-day)": parseFloatAndPercent($(`#Col1-0-KeyStatistics-Proxy > section > div.Mstart\\(a\\).Mend\\(a\\) > div:nth-child(1) > div > div > div > div > table > tbody > tr.Bxz\\(bb\\).H\\(36px\\).BdY.Bdc\\(\\$seperatorColor\\).fi-row.Bgc\\(\\$hoverBgColor\\)\\:h > td.Fw\\(500\\).Ta\\(end\\).Pstart\\(10px\\).Miw\\(60px\\)`).html()),
+            "Market cap (intra-day)": $(`#Col1-0-KeyStatistics-Proxy > section > div.Mstart\\(a\\).Mend\\(a\\) > div:nth-child(1) > div > div > div > div > table > tbody > tr.Bxz\\(bb\\).H\\(36px\\).BdY.Bdc\\(\\$seperatorColor\\).fi-row.Bgc\\(\\$hoverBgColor\\)\\:h > td.Fw\\(500\\).Ta\\(end\\).Pstart\\(10px\\).Miw\\(60px\\)`).html(),
             "Trailing PE": parseFloatAndPercent($(`#Col1-0-KeyStatistics-Proxy > section > div.Mstart\\(a\\).Mend\\(a\\) > div:nth-child(1) > div > div > div > div > table > tbody > tr:nth-child(3) > td.Fw\\(500\\).Ta\\(end\\).Pstart\\(10px\\).Miw\\(60px\\)`).html()),
             "Price/sales": parseFloatAndPercent($(`#Col1-0-KeyStatistics-Proxy > section > div.Mstart\\(a\\).Mend\\(a\\) > div:nth-child(1) > div > div > div > div > table > tbody > tr:nth-child(6) > td.Fw\\(500\\).Ta\\(end\\).Pstart\\(10px\\).Miw\\(60px\\)`).html()),
             "Price/book": parseFloatAndPercent($(`#Col1-0-KeyStatistics-Proxy > section > div.Mstart\\(a\\).Mend\\(a\\) > div:nth-child(1) > div > div > div > div > table > tbody > tr:nth-child(7) > td.Fw\\(500\\).Ta\\(end\\).Pstart\\(10px\\).Miw\\(60px\\)`).html()),
@@ -49,7 +49,7 @@ export function processYahoo() {
     yahoodb.set('stocks', processed).write()
 }
 
-function parseFloatAndPercent(s: string){
+function parseFloatAndPercent(s: string) {
     try {
         return parseFloat(s.replace('%', ''))
     } catch (e) {

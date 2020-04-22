@@ -31,7 +31,14 @@ const EXCHANGE_AND_SUFFIX = {
     'Toronto Stock Exchange': '.TO',
     'Vienna Stock Exchange': '.VI',
     'Warsaw Stock Exchange': null,
-    'Zagreb Stock Exchange': null
+    'Zagreb Stock Exchange': null,
+    'Oslo Stock Exchange': '.OL',
+    'Tokyo Stock Exchange': '.T',
+    'Singapore Exchange': '.SI',
+    'Swiss Exchange': '.SW',
+    'Sistema De Interconexion Bursatil Espanol': '.MC',
+    'Prague Stock Exchange': '.PR',
+    'NYSE Euronext Amsterdam': '.AS'
 }
 
 async function getPageContent(url: string, page: Page) {
@@ -56,19 +63,16 @@ async function getPageContent(url: string, page: Page) {
 
 type LhvStockRecord = { ticker: string, name: string, market: string };
 
-function getSuffix(stock: LhvStockRecord) {
-    return EXCHANGE_AND_SUFFIX[stock.market];
-}
-
 export async function scrapeYahoo() {
     const page = await getPage();
     const lhvDb = await lhvdbCopy.getState();
     const stocks: LhvStockRecord[] = lhvDb.stocks;
     yahooProcessedDb.defaults({stocks: []}).write();
     const lowDbStocks = yahooProcessedDb.get('stocks') as any;
+    let buffer = 0;
     for await (const stock of stocks) {
-        let suffix = getSuffix(stock);
-        if(lowDbStocks.find(it => it.ticker === stock.ticker).value()){
+        let suffix = EXCHANGE_AND_SUFFIX[stock.market];
+        if (lowDbStocks.find(it => it.ticker === stock.ticker).value()) {
             continue;
         }
         if (suffix === null) {
@@ -87,8 +91,15 @@ export async function scrapeYahoo() {
 
         (lowDbStocks as any)
             .push({...stock, tickerAdjusted, url, yahooPageContent})
-            .write();
-        console.log(stock.ticker);
+            .value()
+        if (buffer === 100) {
+            lowDbStocks.write();
+            buffer = 0;
+        } else {
+            buffer++
+        }
+        console.log(buffer, stock.ticker);
     }
+    lowDbStocks.write();
     await closePuppeteer();
 }
