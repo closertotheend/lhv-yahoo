@@ -30,13 +30,13 @@ function calculateScore() {
     const scored = state.map(it => ({
         ...it,
         score:
-            0.5 * pe.findIndex(that => that.ticker === it.ticker) +
-            0.5 * ps.findIndex(that => that.ticker === it.ticker) +
+            pe.findIndex(that => that.ticker === it.ticker) +
+            ps.findIndex(that => that.ticker === it.ticker) +
             pb.findIndex(that => that.ticker === it.ticker) +
             om.findIndex(that => that.ticker === it.ticker) +
-            2 * roa.findIndex(that => that.ticker === it.ticker) +
+            roa.findIndex(that => that.ticker === it.ticker) +
             roe.findIndex(that => that.ticker === it.ticker) +
-            2 * qrg.findIndex(that => that.ticker === it.ticker) +
+            qrg.findIndex(that => that.ticker === it.ticker) +
             qeg.findIndex(that => that.ticker === it.ticker) +
             de.findIndex(that => that.ticker === it.ticker) +
             tady.findIndex(that => that.ticker === it.ticker)+
@@ -54,7 +54,7 @@ try {
         // scrapeLhv()
         // scrapeYahoo()
         // processYahoo()
-        // calculateScore();
+        calculateScore();
     })()
 } catch (e) {
     console.error(e)
