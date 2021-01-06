@@ -14,7 +14,7 @@
     "@types/lodash": "^4.14.149",
     "@types/lowdb": "^1.0.9",
     "@types/puppeteer": "^2.0.1",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "cheerio": "^1.0.0-rc.3",
     "lodash": "^4.17.15",
     "lowdb": "^1.0.0",
